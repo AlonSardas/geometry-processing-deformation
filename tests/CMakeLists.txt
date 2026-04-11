@@ -1,5 +1,5 @@
 add_executable(run_tests
-  test_sanity.cpp
+  test_biharmonic_precompute.cpp
 )
 
 target_link_libraries(run_tests

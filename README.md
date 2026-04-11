@@ -213,10 +213,10 @@ operator](https://en.wikipedia.org/wiki/Linear_map). We can alternatively view
 our minimization above in terms of the unknown positions $\mathbf{x}$:
 
 $$
-\mathop{\text{min}}\_\mathbf{d} \int\_{\Omega} ||  {\nabla}\mathbf{d} || \_F^2 \ dA \Rightarrow  
-\mathop{\text{min}}\_\mathbf{x} \int\_{\Omega} ||  {\nabla}(\mathbf{x} - \widetilde{\mathbf{x}}) || \_F^2 \ dA \Rightarrow  
-\mathop{\text{min}}\_\mathbf{x} \int\_{\Omega} ||  \underbrace{{\nabla}\mathbf{x}}\_\text{after} -
-\underbrace{{\nabla}\widetilde{\mathbf{x}}}\_\text{before} || \_F^2 \ dA.
+\mathop{\text{min}}\_\mathbf{d} \int\_{\Omega} \lVert {\nabla}\mathbf{d} \rVert \_F^2 \ dA \Rightarrow  
+\mathop{\text{min}}\_\mathbf{x} \int\_{\Omega} \lVert {\nabla}(\mathbf{x} - \widetilde{\mathbf{x}}) \rVert \_F^2 \ dA \Rightarrow  
+\mathop{\text{min}}\_\mathbf{x} \int\_{\Omega} \lVert \underbrace{{\nabla}\mathbf{x}}\_\text{after} -
+\underbrace{{\nabla}\widetilde{\mathbf{x}}}\_\text{before} \rVert \_F^2 \ dA.
 $$
 
 If we think of the gradient of the position function ${\nabla}\mathbf{x}$ (with respect to the
@@ -237,7 +237,7 @@ natural local and _relative_ descriptor would be one that compared the position
 of some point on the shape to the average of its local neighborhood. We have
 studied an operator that computes this in the smoothing assignment. The
 [Laplace(-Beltrami) operator](https://en.wikipedia.org/wiki/Laplace_operator)
-can be derived as taking exactly the difference of a functions value at a point
+can be derived as taking exactly the difference of a function's value at a point
 and the average (i.e., [centroid](https://en.wikipedia.org/wiki/Centroid)) of
 an infinitesimal region around that point:
 
@@ -262,14 +262,14 @@ descriptor and massage our optimization problem back in terms of
 displacements:
 
 $$
-\mathop{\text{min}}\_\mathbf{x} \int\_{\Omega} ||  \underbrace{\Delta \mathbf{x}}\_\text{after} -
-\underbrace{\Delta \widetilde{\mathbf{x}}}\_\text{before} || ^2 \ dA \Rightarrow 
-\mathop{\text{min}}\_\mathbf{x} \int\_{\Omega} ||  \Delta (\mathbf{x} - \widetilde{\mathbf{x}}) || ^2 \ dA \Rightarrow  
-\mathop{\text{min}}\_\mathbf{d} \int\_{\Omega} ||  \Delta \mathbf{d} || ^2 \ dA.
+\mathop{\text{min}}\_\mathbf{x} \int\_{\Omega} \lVert  \underbrace{\Delta \mathbf{x}}\_\text{after} -
+\underbrace{\Delta \widetilde{\mathbf{x}}}\_\text{before} \rVert ^2 \ dA \Rightarrow 
+\mathop{\text{min}}\_\mathbf{x} \int\_{\Omega} \lVert  \Delta (\mathbf{x} - \widetilde{\mathbf{x}}) \rVert ^2 \ dA \Rightarrow  
+\mathop{\text{min}}\_\mathbf{d} \int\_{\Omega} \lVert  \Delta \mathbf{d} \rVert ^2 \ dA.
 $$
 
 
-Just as we can show that harmonic functions ( $\Delta \mathbf{d} = 0$ ) minimize the Dirichlet
+Just as we can show that harmonic functions ($\Delta \mathbf{d} = 0$) minimize the Dirichlet
 energy, we can use [calculus of
 variations](https://en.wikipedia.org/wiki/Calculus_of_variations) apply
 [Green's identity](https://en.wikipedia.org/wiki/Green's_identities) _twice_ to
@@ -302,7 +302,7 @@ of the energy:
 
 $$
 \begin{align*}
-\int\_{\Omega} || \Delta \mathbf{d}||^{2} \\, \\, dA &\approx  \text{tr}{\left( \mathbf{D}^{\mathsf T} \mathbf{L}^{\mathsf T} \mathbf{M}^{-{\mathsf T}} \mathbf{M} \mathbf{M}^{-1} \mathbf{L}
+\int\_{\Omega} \lVert \Delta \mathbf{d}\rVert^{2} \\, \\, dA &\approx  \text{tr}{\left( \mathbf{D}^{\mathsf T} \mathbf{L}^{\mathsf T} \mathbf{M}^{-{\mathsf T}} \mathbf{M} \mathbf{M}^{-1} \mathbf{L}
 \mathbf{D} \right)} \\
 &= \text{tr}{\left( \mathbf{D}^{\mathsf T} \underbrace{\mathbf{L}^{\mathsf T} \mathbf{M}^{-1} \mathbf{L}}\_{\mathbf{Q}} \mathbf{D} \right)},
 \end{align*}
@@ -323,7 +323,7 @@ where $\mathbf{M} \in  \mathbb{R}^{n \times  n}$ is the mass-matrix for the give
 
 ##### Precomputation
 
-With out loss of generality, assume that the rows of the unknown displacements
+Without loss of generality, assume that the rows of the unknown displacements
 $\mathbf{D}$ have been sorted so that displacements corresponding to handle vertices
 are in the bottom part:
 
@@ -371,7 +371,7 @@ $$
 where $\mathbf{Q}\_\text{u,u} \in  \mathbb{R}^{(n-k) \times  (n-k)}$ is the quadratic coefficients matrix
 corresponding to the unknown displacements.
 
-This quadratic optimization problem may solved by setting all partial
+This quadratic optimization problem may be solved by setting all partial
 derivatives with respect to degrees of freedom in $\mathbf{D}\_\text{u}$ to zero:
 
 $$
