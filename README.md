@@ -423,9 +423,9 @@ transformation:
 
 $$
 \begin{align*}
-\int\_{\Omega} ||  {\nabla} \mathbf{x} - {\nabla}(\mathbf{R} \widetilde{\mathbf{x}} + \mathbf{t}) ||^{2} \\, \\, dA 
-  &= \int\_{\Omega} ||  {\nabla} \mathbf{x} - {\nabla}(\mathbf{R} \widetilde{\mathbf{x}}) - {\nabla}\mathbf{t}||^{2} \\, \\, dA \\
-  &= \int\_{\Omega} ||  {\nabla} \mathbf{x} - \mathbf{R} {\nabla}\widetilde{\mathbf{x}} ||^{2} \\, \\, dA,
+\int\_{\Omega} \lVert  {\nabla} \mathbf{x} - {\nabla}(\mathbf{R} \widetilde{\mathbf{x}} + \mathbf{t}) \rVert^{2} \\, \\, dA 
+  &= \int\_{\Omega} \lVert  {\nabla} \mathbf{x} - {\nabla}(\mathbf{R} \widetilde{\mathbf{x}}) - {\nabla}\mathbf{t}\rVert^{2} \\, \\, dA \\
+  &= \int\_{\Omega} \lVert  {\nabla} \mathbf{x} - \mathbf{R} {\nabla}\widetilde{\mathbf{x}} \rVert^{2} \\, \\, dA,
 \end{align*}
 $$
 
@@ -433,10 +433,10 @@ where the translation vector $\mathbf{t}$ falls out because a translation has co
 gradient.
 
 We do not know the rotation $\mathbf{R}$ ahead of time, but we could be as generous
-as possible and use the "best" rotation $\mathbf{R}\leftarrow  \mathop{\text{argmin}}\_\mathbf{R} \int\_{\Omega} ||  {\nabla}\mathbf{x} -  \mathbf{R}{\nabla}\widetilde{\mathbf{x}} ||^{2} \\, \\, dA$:
+as possible and use the "best" rotation $\mathbf{R}\leftarrow  \mathop{\text{argmin}}\_\mathbf{R} \int\_{\Omega} \lVert  {\nabla}\mathbf{x} -  \mathbf{R}{\nabla}\widetilde{\mathbf{x}} \rVert^{2} \\, \\, dA$:
 
 $$
-\int\_{\Omega} ||{\nabla}\mathbf{x} - \left( \mathop{\text{argmin}}\_\mathbf{R} \int\_{\Omega} ||  {\nabla}\mathbf{x} -  \mathbf{R} {\nabla}\widetilde{\mathbf{x}} ||^{2} \\, \\, dA \right){\nabla}\widetilde{\mathbf{x}}||^{2} \\, \\, dA.
+\int\_{\Omega} \lVert {\nabla}\mathbf{x} - \left( \mathop{\text{argmin}}\_\mathbf{R} \int\_{\Omega} \rVert  {\nabla}\mathbf{x} -  \mathbf{R} {\nabla}\widetilde{\mathbf{x}} ||^{2} \\, \\, dA \right){\nabla}\widetilde{\mathbf{x}}||^{2} \\, \\, dA.
 $$
 
 
@@ -463,23 +463,23 @@ everywhere, or _as-rigid-as-possible_ (ARAP).
 > [deformation gradient](#deformationgradient) and the closest rotation:
 >
 $$
-\int_{\Omega} ||{\nabla}\mathbf{x} - \mathbf{R} {\nabla}\widetilde{\mathbf{x}}||^{2} \\, \\, dA
+\int_{\Omega} \lVert{\nabla}\mathbf{x} - \mathbf{R} {\nabla}\widetilde{\mathbf{x}}\rVert^{2} \\, \\, dA
 $$
 
 $$
-\int_{\Omega} ||({\nabla}\mathbf{x} + \mathbf{I} - \mathbf{I}) - \mathbf{R} \mathbf{I} ||^{2} \\, \\, dA
+\int_{\Omega} \lVert ({\nabla}\mathbf{x} + \mathbf{I} - \mathbf{I}) - \mathbf{R} \mathbf{I} \rVert^{2} \\, \\, dA
 $$
 
 $$
-\int_{\Omega} ||(\mathbf{I} + {\nabla}\mathbf{x} - {\nabla}\widetilde{x}) - \mathbf{R} ||^{2} \\, \\, dA
+\int_{\Omega} \lVert(\mathbf{I} + {\nabla}\mathbf{x} - {\nabla}\widetilde{\mathbf{x}}) - \mathbf{R} \rVert^{2} \\, \\, dA
 $$
 
 $$
-\int_{\Omega} ||(\mathbf{I} + {\nabla}\mathbf{d}) - \mathbf{R} ||^{2} \\, \\, dA
+\int_{\Omega} \lVert(\mathbf{I} + {\nabla}\mathbf{d}) - \mathbf{R} \rVert^{2} \\, \\, dA
 $$
 
 $$
-\int_{\Omega} ||\mathbf{F} - \mathbf{R} ||^{2} \\, \\, dA
+\int_{\Omega} \lVert\mathbf{F} - \mathbf{R} \rVert^{2} \\, \\, dA
 $$
 
 >
@@ -500,11 +500,11 @@ in the mesh:
 
 $$
 \frac12  \int_{\Omega} 
-||  {\nabla} \mathbf{x} - {\nabla}\widetilde{\mathbf{x}}||^{2} \\, \\, dA = 
+\lVert {\nabla} \mathbf{x} - {\nabla}\widetilde{\mathbf{x}}\rVert^{2} \\, \\, dA = 
 \frac12  
 \sum\limits_{f \in  F} 
-\sum\limits_{ ij \in  f} c_{ij} || 
-(\mathbf{v}_i-\mathbf{v}_j) - (\widetilde{\mathbf{v}}_i-\widetilde{\mathbf{v}}_j)||^{2},
+\sum\limits_{ ij \in  f} c_{ij} \lVert 
+(\mathbf{v}_i-\mathbf{v}_j) - (\widetilde{\mathbf{v}}_i-\widetilde{\mathbf{v}}_j)\rVert^{2},
 $$
 
 where $c_{ij}$ is cotangent of the angle opposite half-edge $ij$.
