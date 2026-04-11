@@ -142,7 +142,7 @@ Let us first consider minimizing the integral of squared variation of the
 displacement field:
 
 $$
-\mathop{\text{min}}\_\mathbf{d} \int\_{\Omega} \|  {\nabla}\mathbf{d} \| \_F^2 \ dA \quad \text{ subject to } \mathbf{d}\_i =
+\mathop{\text{min}}\_\mathbf{d} \int\_{\Omega} \lVert  {\nabla}\mathbf{d} \rVert \_F^2 \ dA \quad \text{ subject to } \mathbf{d}\_i =
 \mathbf{g}\_i-\widetilde{\mathbf{x}}\_i \ \forall  i = \{1, \ldots  , k\},
 $$
 
