@@ -97,12 +97,8 @@ For the handle-based deformation problem we would like to find a new surface
 We can cast this as an energy optimization problem. Suppose we have
 energy [functional](https://en.wikipedia.org/wiki/Functional_(mathematics))
 $E(\mathbf{x})$ that 
-measures the amount of distortion between the new shape 
-(
-  $\mathbf{x}$
-  ) and the rest
-shape $\widetilde{x}$, then we could optimize for the best possible shape $\mathbf{x}$ by
-minimizing $E$:
+measures the amount of distortion between the new shape ($\mathbf{x}$) and the rest
+shape $\widetilde{\mathbf{x}}$, then we could optimize for the best possible shape $\mathbf{x}$ by minimizing $E$:
 
 $$
 \mathop{\text{min}}_\mathbf{x} E(\mathbf{x}). 
