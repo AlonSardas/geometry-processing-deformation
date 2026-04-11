@@ -133,9 +133,7 @@ If we assume that the deformation between the rest shape given by $\widetilde{\m
 and the new shape given by $\mathbf{x}$ is _small_ then we can measure the distortion
 of the deformation in terms of the smoothness of the displacement field. This
 simplest methods will integrate the magnitude of derivatives of the
-displacement field (
-  $\mathbf{d}$
-  ): if the displacement field has large variations or
+displacement field ($\mathbf{d}$): if the displacement field has large variations or
 sudden changes then it is inducing a lot of distortion.
 
 #### Gradient-based energy
@@ -144,7 +142,7 @@ Let us first consider minimizing the integral of squared variation of the
 displacement field:
 
 $$
-\mathop{\text{min}}\_\mathbf{d} \int\_{\Omega} ||  {\nabla}\mathbf{d} || \_F^2 \ dA \quad \text{ subject to } \mathbf{d}\_i =
+\mathop{\text{min}}\_\mathbf{d} \int\_{\Omega} \|  {\nabla}\mathbf{d} \| \_F^2 \ dA \quad \text{ subject to } \mathbf{d}\_i =
 \mathbf{g}\_i-\widetilde{\mathbf{x}}\_i \ \forall  i = \{1, \ldots  , k\},
 $$
 
