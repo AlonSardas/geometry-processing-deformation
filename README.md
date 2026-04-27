@@ -120,7 +120,7 @@ an egalitarian way by integrating a _local_ measure of distortion at all points
 on the surface:
 
 $$
-\mathop{\text{min}}\_\mathbf{x} \int\_{\Omega} ||  e(\mathbf{x}) ||^{2} \ dA \quad \text{ subject to } \mathbf{x}(u\_i, v\_i) = \mathbf{g}\_i \ \forall  i = \{1, \ldots  , k\},
+\mathop{\text{min}}\_\mathbf{x} \int\_{\Omega} \lVert  e(\mathbf{x}) \rVert^{2} \ dA \quad \text{ subject to } \mathbf{x}(u\_i, v\_i) = \mathbf{g}\_i \ \forall  i = \{1, \ldots  , k\},
 $$
 
 
@@ -436,7 +436,7 @@ We do not know the rotation $\mathbf{R}$ ahead of time, but we could be as gener
 as possible and use the "best" rotation $\mathbf{R}\leftarrow  \mathop{\text{argmin}}\_\mathbf{R} \int\_{\Omega} \lVert  {\nabla}\mathbf{x} -  \mathbf{R}{\nabla}\widetilde{\mathbf{x}} \rVert^{2} \\, \\, dA$:
 
 $$
-\int\_{\Omega} \lVert {\nabla}\mathbf{x} - \left( \mathop{\text{argmin}}\_\mathbf{R} \int\_{\Omega} \rVert  {\nabla}\mathbf{x} -  \mathbf{R} {\nabla}\widetilde{\mathbf{x}} ||^{2} \\, \\, dA \right){\nabla}\widetilde{\mathbf{x}}||^{2} \\, \\, dA.
+\int\_{\Omega} \lVert {\nabla}\mathbf{x} - \left( \mathop{\text{argmin}}\_\mathbf{R} \int\_{\Omega} \rVert  {\nabla}\mathbf{x} -  \mathbf{R} {\nabla}\widetilde{\mathbf{x}} \lVert^{2} \\, \\, dA \right){\nabla}\widetilde{\mathbf{x}}\rVert^{2} \\, \\, dA.
 $$
 
 
@@ -444,7 +444,7 @@ If we treat $\mathbf{R}$ as a degree of freedom along with the unknown positions
 $\mathbf{x}$, we can unify this into an optimization over $\mathbf{x}$ and $\mathbf{R}$:
 
 $$
-\mathop{\text{min}}\_{\mathbf{x},\mathbf{R}\in SO(3)} \int\_{\Omega} ||{\nabla}\mathbf{x} - \mathbf{R} {\nabla}\widetilde{\mathbf{x}}||^{2} \\, \\, dA.
+\mathop{\text{min}}\_{\mathbf{x},\mathbf{R}\in SO(3)} \int\_{\Omega} \lVert{\nabla}\mathbf{x} - \mathbf{R} {\nabla}\widetilde{\mathbf{x}}\rVert^{2} \\, \\, dA.
 $$
 
 
@@ -514,9 +514,9 @@ matrix $\mathbf{R}\_k$ to each vertex $k$ of the mesh and accounts for a third o
 energy integrated over incident triangles:
 
 $$
-\frac12  \int\_{\Omega} ||  {\nabla} \mathbf{x} - \mathbf{R} {\nabla}\widetilde{\mathbf{x}}||^{2} \\, \\, dA = 
+\frac12  \int\_{\Omega} \lVert  {\nabla} \mathbf{x} - \mathbf{R} {\nabla}\widetilde{\mathbf{x}}\rVert^{2} \\, \\, dA = 
 \frac{1}{6} \sum\limits\_{k=1}^n \sum\limits\_{ ij \in  F(k)} 
-c\_{ij} ||  (\mathbf{v}\_i-\mathbf{v}\_j) - \mathbf{R}\_k (\widetilde{\mathbf{v}}\_i-\widetilde{\mathbf{v}}\_j)||^{2},
+c\_{ij} \lVert  (\mathbf{v}\_i-\mathbf{v}\_j) - \mathbf{R}\_k (\widetilde{\mathbf{v}}\_i-\widetilde{\mathbf{v}}\_j)\rVert^{2},
 $$
 
 where $F(k)$ is the set of all faces incident on the $k$-th vertex.
@@ -573,7 +573,7 @@ differences across edges in the rest mesh (e.g., $\widetilde{\mathbf{v}}\_i - \w
 
 > ###### I'm so confused. What's in the $\mathbf{K}$ matrix?
 > 
-> Let's take it slow. The $\mathbf{K}$ matrix is represents the
+> Let's take it slow. The $\mathbf{K}$ matrix represents the
 > [bilinear form](https://en.wikipedia.org/wiki/Bilinear_form) that combines unknown 
 > vertex positions and unknown rotations. We have identified above that we can
 > write this in summation or matrix form:
@@ -661,7 +661,7 @@ $$
 
 ##### Local step
 
-Minimizing this energy with respect $\mathbf{R}$ corresponds to minimizing:
+Minimizing this energy with respect to $\mathbf{R}$ corresponds to minimizing:
 
 $$
 \text{tr}{\left( \underbrace{\mathbf{V}^{\mathsf T} \mathbf{K}}\_{\mathbf{C}^{\mathsf T}} \mathbf{R} \right)},
