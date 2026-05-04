@@ -376,7 +376,7 @@ derivatives with respect to degrees of freedom in $\mathbf{D}\_\text{u}$ to zero
 
 $$
 2 \mathbf{Q}\_\text{u,u} \mathbf{D}\_\text{u} + 2 \mathbf{Q}\_\text{u,h} \mathbf{D}\_\text{h}
-= 0 \rightarrow  \mathbf{D}\_\text{u} = \mathbf{Q}\_\text{u,u}^{-1} \mathbf{Q}\_\text{u,h} \mathbf{D}\_\text{h}
+= 0 \rightarrow  \mathbf{D}\_\text{u} = -\mathbf{Q}\_\text{u,u}^{-1} \mathbf{Q}\_\text{u,h} \mathbf{D}\_\text{h}
 $$
 
 
@@ -661,7 +661,7 @@ $$
 
 ##### Local step
 
-Minimizing this energy with respect to $\mathbf{R}$ corresponds to minimizing:
+Minimizing this energy with respect to $\mathbf{R}$ corresponds to minimizing:  
 
 $$
 \text{tr}{\left( \underbrace{\mathbf{V}^{\mathsf T} \mathbf{K}}\_{\mathbf{C}^{\mathsf T}} \mathbf{R} \right)},
@@ -715,7 +715,7 @@ number of remaining problems:
  constraints;
  2. the energy punishes _bending_ of the surface--which is good--but does so in
  a way that diminishes as the mesh becomes higher and higher resolution, in
- otherwords, the discrete energy is mesh-resolution dependent; and
+ other words, the discrete energy is mesh-resolution dependent; and
  3. the energy is biased by the original combinatorics of the mesh (even in
  flat regions).
 

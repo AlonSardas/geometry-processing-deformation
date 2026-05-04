@@ -6,7 +6,7 @@
 void biharmonic_solve(const igl::min_quad_with_fixed_data<double> &data,
                       const Eigen::MatrixXd &bc, Eigen::MatrixXd &D) {
   Eigen::MatrixXd Y = data.preY * bc;
-  Eigen::MatrixXd U = data.llt.solve(Y);
+  Eigen::MatrixXd U = data.ldlt.solve(Y);
 
   D.resize(data.n, 3);
   igl::slice_into(bc, data.known, 1, D);
